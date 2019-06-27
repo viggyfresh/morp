@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, division, print_function, absolute_import
+
 import hashlib
 
 import dsnparse
@@ -61,7 +61,7 @@ class Connection(object):
         self.options = kwargs.pop('options', {})
         self.hosts = []
 
-        for key, val in kwargs.iteritems():
+        for key, val in kwargs.items():
             if hasattr(self, key):
                 setattr(self, key, val)
             else:

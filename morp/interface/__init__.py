@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, division, print_function, absolute_import
+
 import logging
 import sys
 from contextlib import contextmanager
@@ -7,7 +7,7 @@ import base64
 import datetime
 
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 
@@ -357,5 +357,5 @@ class Interface(object):
             exc_info = sys.exc_info()
         if not isinstance(e, InterfaceError):
             e = InterfaceError(e, exc_info)
-        raise e.__class__, e, exc_info[2]
+        raise e.__class__(e).with_traceback(exc_info[2])
 
