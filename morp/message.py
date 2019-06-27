@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, division, print_function, absolute_import
+
 import os
 from contextlib import contextmanager
 import logging
@@ -110,7 +110,7 @@ class Message(object):
             i = self.interface
             interface_msg = self.interface.create_msg(fields=fields)
             self.interface_msg = interface_msg
-            logger.info("Sending message with {} keys to {}".format(fields.keys(), name))
+            logger.info("Sending message with {} keys to {}".format(list(fields.keys()), name))
             i.send(name, interface_msg, **kwargs)
 
     def send_later(self, delay_seconds, **kwargs):

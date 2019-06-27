@@ -61,7 +61,7 @@ class Connection(object):
         self.options = kwargs.pop('options', {})
         self.hosts = []
 
-        for key, val in kwargs.items():
+        for key, val in list(kwargs.items()):
             if hasattr(self, key):
                 setattr(self, key, val)
             else:

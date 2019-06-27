@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, division, print_function, absolute_import
+
 import logging
 import sys
 import time
@@ -45,7 +45,7 @@ class Client(object):
                 clear_names[message_class.get_name()] = message_class
                 self.message_classes.append(message_class)
 
-        for message_class in clear_names.values():
+        for message_class in list(clear_names.values()):
             message_class.clear()
 
     def send(self, **fields):
@@ -411,7 +411,7 @@ class ConnectionTest(TestCase):
 
         for t in tests:
             c = DsnConnection(t[0])
-            for k, v in t[1].items():
+            for k, v in list(t[1].items()):
                 self.assertEqual(v, getattr(c, k))
 
 

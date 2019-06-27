@@ -2,5 +2,5 @@
 *.tmproj
 *.pyc
 .vagrant
-egg-info/
+*.egg-info/
 
