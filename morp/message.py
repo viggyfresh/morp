@@ -59,11 +59,11 @@ class Message(object):
             # passed in morp_classpath to create the correct Message child
             fields = cls.make_dict(fields, fields_kwargs)
             klass = get_class(fields['morp_classpath'])
-            return super(Message, klass).__new__(klass, fields)
+            return super(Message, klass).__new__()
 
         else:
             # When a subclass object is created
-            return super(Message, cls).__new__(cls, fields, **fields_kwargs)
+            return super(Message, cls).__new__()
 
     def __init__(self, fields=None, **fields_kwargs):
         fields = self.make_dict(fields, fields_kwargs)
