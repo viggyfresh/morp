@@ -109,7 +109,7 @@ class SQS(Interface):
                 delay_seconds = 900
 
             # http://boto3.readthedocs.io/en/latest/reference/services/sqs.html#SQS.Queue.send_message
-            q.send_message(MessageBody=body, DelaySeconds=delay_seconds)
+            q.send_message(MessageBody=str(body), DelaySeconds=delay_seconds)
 
     def _count(self, name, connection, **kwargs):
         ret = 0
