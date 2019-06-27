@@ -40,7 +40,7 @@ class Connection(object):
                 key = self.options.get('key', "")
 
             # key must be 32 characters long
-            self._key = hashlib.sha256(key).digest() if key else ""
+            self._key = hashlib.sha256(key.encode("utf-8")).digest() if key else ""
 
         return self._key
 
