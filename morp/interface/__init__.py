@@ -24,6 +24,9 @@ interfaces = {}
 """holds all configured interfaces"""
 
 
+PICKLE_PROTOCOL = 2
+
+
 def get_interfaces():
     global interfaces
     return interfaces
@@ -119,7 +122,7 @@ class InterfaceMessage(object):
         fields -- dict -- the fields to be converted to a string
         return -- string -- the message all ready to be sent
         """
-        ret = pickle.dumps(fields, pickle.HIGHEST_PROTOCOL)
+        ret = pickle.dumps(fields, PICKLE_PROTOCOL)
         key = self.interface.connection_config.key
         if key:
             logger.debug("Encrypting fields")
