@@ -46,7 +46,7 @@ class Message(object):
     """this will hold the interface message that was used to send this instance
     to the backend using interface"""
 
-    name = "morp-messages"
+    name = None
     """The queue name, see get_name()"""
 
     @decorators.classproperty
